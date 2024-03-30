@@ -9,7 +9,6 @@
     "build": "tsup src/index.ts"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
     "@repo/tsconfig": "*",
     "@types/node": "^18.11.9",
     "tsup": "^8.0.1",
