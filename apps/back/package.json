@@ -10,10 +10,11 @@
   },
   "dependencies": {
     "@hono/node-server": "1.9.0",
-    "hono": "4.1.5",
     "@repo/constants": "*",
     "@repo/models": "*",
-    "@repo/utils": "*"
+    "@repo/utils": "*",
+    "hono": "4.1.5",
+    "node-cache": "^5.1.2"
   },
   "devDependencies": {
     "@total-typescript/ts-reset": "0.5.1",

@@ -3,6 +3,7 @@ import { Hono } from 'hono';
 
 import scheduleRoute from './services/schedule/schedule.routes';
 import { honoLogger } from './utils/honoLogger.utils';
+import cacheRoute from './cache/cache.routes';
 
 export const createServer = () => {
   const app = new Hono();
@@ -11,6 +12,7 @@ export const createServer = () => {
   app.use('*', honoLogger());
 
   app.route('/schedule', scheduleRoute);
+  app.route('/cache', cacheRoute);
 
   app.notFound((c) => {
     const { method, path } = c.req;
