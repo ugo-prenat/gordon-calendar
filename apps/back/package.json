@@ -1,0 +1,22 @@
+{
+  "name": "back",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env dist/index.js",
+    "dev": "tsup src/index.ts --watch --onSuccess 'node --env-file=.env dist/index.js'",
+    "build": "tsup src/index.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "1.9.0",
+    "hono": "4.1.5"
+  },
+  "devDependencies": {
+    "@repo/constants": "*",
+    "@total-typescript/ts-reset": "0.5.1",
+    "@types/node": "20.11.17",
+    "tsup": "8.0.1",
+    "tsx": "4.7.1"
+  }
+}
