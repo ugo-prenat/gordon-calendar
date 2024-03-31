@@ -29,6 +29,9 @@ importers:
       '@repo/models':
         specifier: '*'
         version: link:../../packages/models
+      '@repo/utils':
+        specifier: '*'
+        version: link:../../packages/utils
       hono:
         specifier: 4.1.5
         version: 4.1.5
@@ -81,6 +84,25 @@ importers:
         version: 5.2.2
 
   packages/tsconfig: {}
+
+  packages/utils:
+    dependencies:
+      '@repo/constants':
+        specifier: '*'
+        version: link:../constants
+    devDependencies:
+      '@repo/tsconfig':
+        specifier: '*'
+        version: link:../tsconfig
+      '@types/node':
+        specifier: 18.11.9
+        version: 18.11.9
+      tsup:
+        specifier: 8.0.1
+        version: 8.0.1(typescript@5.2.2)
+      typescript:
+        specifier: 5.2.2
+        version: 5.2.2
 
 packages:
 

@@ -1,0 +1,21 @@
+{
+  "name": "@repo/utils",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsup src/index.ts --watch --onSuccess 'node dist/index.js'",
+    "build": "tsup src/index.ts"
+  },
+  "dependencies": {
+    "@repo/constants": "*"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "*",
+    "@types/node": "18.11.9",
+    "tsup": "8.0.1",
+    "typescript": "5.2.2"
+  }
+}
