@@ -9,19 +9,21 @@ export type MotorsportChampionship = (typeof MOTORSPORT_CHAMPIONSHIPS)[number];
 export type Championship = (typeof CHAMPIONSHIPS)[number];
 
 export interface IEvent {
-  id: string;
-  origin: string;
+  id: number;
   sportType: SportType;
 }
 
 export interface IMotorsportEvent extends IEvent {
   championship: MotorsportChampionship;
+  championshipId: number;
+  championshipName: string;
   sessions: ISession[];
   circuit: ICircuit;
   country: ICountry;
 }
 
 export interface IScheduleSession {
+  eventId: string;
   sportType: SportType;
   championship: Championship;
   name: string;
@@ -38,18 +40,32 @@ export interface IScheduleDay {
 }
 
 export interface ISession {
+  id: number;
   name: string;
   shortname: string;
+  code?: string;
   startTime: string;
   endTime: string;
+  results: IResult[];
 }
 
 export interface ICircuit {
   name: string;
-  path: string;
+  id?: number;
+  shortname?: string;
+  imagePath?: string;
 }
 
 export interface ICountry {
+  code: string;
   name: string;
-  flag: string;
+  flagImagePath?: string;
+}
+
+export interface IResult {
+  driverId: number;
+  driverName: string;
+  driverFullName?: string;
+  driverTLA?: string;
+  driverImagePath?: string;
 }

@@ -11,7 +11,7 @@ export const SPORTS_TYPES = [MOTORSPORT] as const;
 export const F1 = 'f1';
 export const F2 = 'f2';
 export const F3 = 'f3';
-export const F1_ACADEMY = 'f1-academy';
+export const FA = 'fa';
 
-export const MOTORSPORT_CHAMPIONSHIPS = [F1, F2, F3, F1_ACADEMY] as const;
+export const MOTORSPORT_CHAMPIONSHIPS = [F1, F2, F3, FA] as const;
 export const CHAMPIONSHIPS = [...MOTORSPORT_CHAMPIONSHIPS] as const;

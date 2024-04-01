@@ -19,11 +19,5 @@ export const CACHE_KEYS = [
 export const F1_RACES_API_URL =
   'https://api.formula1.com/v1/editorial-eventlisting/events';
 
-const F2_F3_FA_BASE_API_URL = 'https://api.formula1.com/v1/f2f3-fom-results';
-export const F2_BASE_API_URL = F2_F3_FA_BASE_API_URL;
-export const F3_BASE_API_URL = F2_F3_FA_BASE_API_URL;
-export const FA_BASE_API_URL = F2_F3_FA_BASE_API_URL;
-
-// 'https://api.formula1.com/v1/f2f3-fom-results/races?website=f2';
-// 'https://api.formula1.com/v1/f2f3-fom-results/races?website=f3';
-// 'https://api.formula1.com/v1/f2f3-fom-results/races?website=fa';
+export const F1_PROMOTIONS_BASE_API_URL =
+  'https://api.formula1.com/v1/f2f3-fom-results';
