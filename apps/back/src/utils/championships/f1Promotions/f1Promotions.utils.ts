@@ -28,17 +28,19 @@ export const formatF1PromotionsResponse =
     const { SeasonId, SeasonName } = data;
 
     return data.Races.map((race) => {
-      const { RaceId, Sessions } = race;
+      const { RaceId, Sessions, RaceStartDate, RaceEndDate } = race;
 
       return {
         id: RaceId,
+        endDate: RaceEndDate,
+        startDate: RaceStartDate,
         sportType: 'motorsport',
         championship: promotion,
         championshipId: SeasonId,
         championshipName: SeasonName,
-        sessions: makeF1PromotionsSessions(Sessions),
         circuit: makeF1PromotionsCircuit(race),
-        country: makeF1PromotionsCountry(race)
+        country: makeF1PromotionsCountry(race),
+        sessions: makeF1PromotionsSessions(Sessions)
       };
     });
   };

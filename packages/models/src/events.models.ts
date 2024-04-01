@@ -15,8 +15,10 @@ export interface IEvent {
 
 export interface IMotorsportEvent extends IEvent {
   championship: MotorsportChampionship;
-  championshipId: number;
+  championshipId?: number;
   championshipName: string;
+  startDate: string;
+  endDate: string;
   sessions: ISession[];
   circuit: ICircuit;
   country: ICountry;
