@@ -1,13 +1,15 @@
+import NodeCache from 'node-cache';
 import cache from './cache';
-import { CacheKey } from './cache.models';
 
-import f2RawMock from './mocks/raw/f2-raw-mock.json';
+import f2FormattedMock from './mocks/formatted/f2-formatted-mock.json';
+import f3FormattedMock from './mocks/formatted/f3-formatted-mock.json';
+import faFormattedMock from './mocks/formatted/fa-formatted-mock.json';
 
-export const addToCache = (key: CacheKey, value: unknown) =>
-  cache.set(key, value);
+export const addToCache = (values: NodeCache.ValueSetItem[]) =>
+  cache.mset(values);
 
 const refreshCache = () => {
-  // fetch data from API
+  // fetch data from API here
 
   console.log('---');
   console.log('Cache refreshed');
@@ -15,8 +17,11 @@ const refreshCache = () => {
 };
 
 const buildCacheWithMocks = () => {
-  addToCache('f2', f2RawMock);
-  console.log('---');
+  addToCache([
+    { key: 'f2', val: f2FormattedMock },
+    { key: 'f3', val: f3FormattedMock },
+    { key: 'fa', val: faFormattedMock }
+  ]);
   console.log('Cache built with mocks');
   console.log('---');
 };
