@@ -1,5 +1,5 @@
-import { fetcher } from '../../fetcher';
-import { F1_PROMOTIONS_BASE_API_URL } from '../../../constants';
+import { fetcher } from '../../utils/fetcher';
+import { F1_PROMOTIONS_BASE_API_URL } from '../../constants';
 import {
   F1Promotions,
   ICountry,

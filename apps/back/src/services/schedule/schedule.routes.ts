@@ -4,7 +4,7 @@ import {
   getF2Races,
   getF3Races,
   getFARaces
-} from '../../utils/championships/f1Promotions/f1Promotions.api';
+} from '../../championships/f1Promotions/f1Promotions.api';
 
 const scheduleRoute = new Hono();
 
