@@ -1,26 +1,16 @@
-import { fetcher } from '../../utils/fetcher';
-import { F1_PROMOTIONS_BASE_API_URL } from '../../constants';
 import {
   F1Promotions,
   ICountry,
-  IF1PromotionsRace,
-  IF1PromotionsResponse,
-  IF1PromotionsSession,
   IMotorsportEvent,
   IResult,
   ISession
 } from '@repo/models';
 import { ICircuit } from '@repo/models';
-
-export const f1PromotionsFetcher = (
-  url: string,
-  { promotion, apiKey }: { promotion: F1Promotions; apiKey: string },
-  init?: RequestInit
-): Promise<IF1PromotionsResponse> =>
-  fetcher['GET'](`${F1_PROMOTIONS_BASE_API_URL}${url}?website=${promotion}`, {
-    headers: { apiKey, ...init?.headers },
-    ...init
-  });
+import {
+  IF1PromotionsRace,
+  IF1PromotionsResponse,
+  IF1PromotionsSession
+} from './f1Promotions.models';
 
 export const formatF1PromotionsResponse =
   (promotion: F1Promotions) =>
@@ -31,7 +21,7 @@ export const formatF1PromotionsResponse =
       const { RaceId, Sessions, RaceStartDate, RaceEndDate } = race;
 
       return {
-        id: RaceId,
+        id: String(RaceId),
         endDate: RaceEndDate,
         startDate: RaceStartDate,
         sportType: 'motorsport',
@@ -50,7 +40,6 @@ const makeF1PromotionsSessions = (
 ): ISession[] =>
   sessions.map((session) => {
     const {
-      SessionId,
       SessionCode,
       SessionEndTime,
       SessionName,
@@ -59,12 +48,11 @@ const makeF1PromotionsSessions = (
     } = session;
 
     return {
-      id: SessionId,
       name: SessionName,
       code: SessionCode,
-      shortname: SessionShortName,
-      startTime: SessionStartTime,
       endTime: SessionEndTime,
+      startTime: SessionStartTime,
+      shortname: SessionShortName,
       results: makeF1PromotionsResults(session)
     };
   });

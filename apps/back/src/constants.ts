@@ -16,8 +16,6 @@ export const CACHE_KEYS = [
 ] as const;
 
 // APIs
-export const F1_RACES_API_URL =
-  'https://api.formula1.com/v1/editorial-eventlisting/events';
-
+export const F1_BASE_API_URL = 'https://api.formula1.com/v1';
 export const F1_PROMOTIONS_BASE_API_URL =
   'https://api.formula1.com/v1/f2f3-fom-results';

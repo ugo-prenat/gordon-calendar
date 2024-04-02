@@ -10,4 +10,6 @@ cacheRoute.get('/ttl', (c) =>
   c.json(cache.keys().map((key) => ({ [key]: cache.getTtl(key) })))
 );
 
+// cacheRoute.get('/test-f1', (c) => getF1Races().then(c.json));
+
 export default cacheRoute;
