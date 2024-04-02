@@ -4,12 +4,14 @@ import cache from './cache';
 const cacheRoute = new Hono();
 
 cacheRoute.get('/', (c) => c.json(cache.mget(cache.keys())));
-cacheRoute.get('/stats', (c) => c.json(cache.getStats()));
-cacheRoute.get('/keys', (c) => c.json(cache.keys()));
-cacheRoute.get('/ttl', (c) =>
-  c.json(cache.keys().map((key) => ({ [key]: cache.getTtl(key) })))
-);
+cacheRoute.get('/infos', (c) => {
+  const stats = cache.getStats();
+  const keys = cache.keys();
 
-// cacheRoute.get('/test-f1', (c) => getF1Races().then(c.json));
+  return c.json({
+    stats,
+    keys: keys.map((key) => ({ key, ttl: cache.getTtl(key) }))
+  });
+});
 
 export default cacheRoute;
