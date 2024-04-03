@@ -11,13 +11,12 @@ import {
   IF1PromotionsResponse,
   IF1PromotionsSession
 } from './f1Promotions.models';
+import { getChampionshipName } from '../../utils/helpers.utils';
 
 export const formatF1PromotionsResponse =
   (promotion: F1Promotions) =>
-  (data: IF1PromotionsResponse): IMotorsportEvent[] => {
-    const { SeasonId, SeasonName } = data;
-
-    return data.Races.map((race) => {
+  (data: IF1PromotionsResponse): IMotorsportEvent[] =>
+    data.Races.map((race) => {
       const { RaceId, Sessions, RaceStartDate, RaceEndDate } = race;
 
       return {
@@ -26,14 +25,12 @@ export const formatF1PromotionsResponse =
         startDate: RaceStartDate,
         sportType: 'motorsport',
         championship: promotion,
-        championshipId: SeasonId,
-        championshipName: SeasonName,
+        championshipName: getChampionshipName(promotion),
         circuit: makeF1PromotionsCircuit(race),
         country: makeF1PromotionsCountry(race),
         sessions: makeF1PromotionsSessions(Sessions)
       };
     });
-  };
 
 const makeF1PromotionsSessions = (
   sessions: IF1PromotionsSession[]

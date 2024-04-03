@@ -1,6 +1,6 @@
 import { F1Promotions, IMotorsportEvent } from '@repo/models';
 import { formatF1PromotionsResponse } from './f1Promotions.utils';
-import { fetcher } from '../../utils/fetcher';
+import { fetcher } from '../../utils/fetcher.utils';
 import { F1_PROMOTIONS_BASE_API_URL } from '../../constants';
 import { IF1PromotionsResponse } from './f1Promotions.models';
 

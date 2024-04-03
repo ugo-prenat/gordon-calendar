@@ -5,6 +5,7 @@ import {
   IF1MeetingEventDrivers,
   IF1MeetingTimetable
 } from './f1.models';
+import { getChampionshipName } from '../../utils/helpers.utils';
 
 export const formatF1Meetings = (
   meetings: { meeting: IF1Meeting; rawEvent: IF1MeetingEvent }[]
@@ -28,7 +29,7 @@ export const formatF1Meetings = (
       id: fomRaceId,
       sportType: 'motorsport',
       championship: 'f1',
-      championshipName: 'FIA Formula One World Championship',
+      championshipName: getChampionshipName('f1'),
       eventName: meetingOfficialName,
       eventShortName: meetingName,
       startDate: meetingStartDate,

@@ -1,3 +1,5 @@
+import { Championship } from '@repo/models';
+
 //  CACHE
 export const CACHE_TTL = 60 * 60 * 24 * 7; // 1 week
 
@@ -19,3 +21,11 @@ export const CACHE_KEYS = [
 export const F1_BASE_API_URL = 'https://api.formula1.com/v1';
 export const F1_PROMOTIONS_BASE_API_URL =
   'https://api.formula1.com/v1/f2f3-fom-results';
+
+// CHAMPIONSHIPS
+export const CHAMPIONSHIPS_NAMES: Record<Championship, string> = {
+  f1: 'FIA Formula One World Championship',
+  f2: 'FIA Formula 2 Championship',
+  f3: 'FIA Formula 3 Championship',
+  fa: 'FIA Formula One Academy Championship'
+};

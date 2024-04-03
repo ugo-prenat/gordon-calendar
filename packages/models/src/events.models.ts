@@ -12,7 +12,6 @@ export interface IEvent {
   id: string;
   sportType: SportType;
   championship: MotorsportChampionship;
-  championshipId?: number;
   championshipName: string;
   eventName?: string;
   eventShortName?: string;

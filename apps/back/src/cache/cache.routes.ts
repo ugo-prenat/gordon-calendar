@@ -14,4 +14,8 @@ cacheRoute.get('/infos', (c) => {
   });
 });
 
+// cacheRoute.get('/test-f2', (c) => getF2Races().then(c.json));
+// cacheRoute.get('/test-f3', (c) => getF3Races().then(c.json));
+// cacheRoute.get('/test-fa', (c) => getFARaces().then(c.json));
+
 export default cacheRoute;

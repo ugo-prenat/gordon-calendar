@@ -1,6 +1,6 @@
 import { IMotorsportEvent } from '@repo/models';
 import { F1_BASE_API_URL } from '../../constants';
-import { fetcher } from '../../utils/fetcher';
+import { fetcher } from '../../utils/fetcher.utils';
 import {
   IF1Meeting,
   IF1MeetingEvent,
