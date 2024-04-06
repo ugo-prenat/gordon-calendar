@@ -13,6 +13,7 @@
     "@repo/constants": "*",
     "@repo/models": "*",
     "@repo/utils": "*",
+    "date-fns": "^3.6.0",
     "hono": "4.1.5",
     "node-cache": "^5.1.2"
   },

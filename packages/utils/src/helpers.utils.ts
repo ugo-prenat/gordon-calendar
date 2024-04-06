@@ -9,3 +9,6 @@ export const isNotEmpty = (value: unknown) => !isEmpty(value);
 
 export const wait = (ms: number) =>
   new Promise((resolve) => setTimeout(resolve, ms));
+
+export const cleanArray = <T>(array: T[]): T[] =>
+  array.filter((item) => item !== null && item !== undefined && item !== '');

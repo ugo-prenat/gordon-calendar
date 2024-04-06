@@ -21,6 +21,7 @@ export const createServer = () => {
 
   app.onError((err, c) => {
     const error = new Error('Hono error', { cause: err });
+    console.log('Error:', err);
     return c.json(error, 500);
   });
 
