@@ -13,7 +13,7 @@ export const formatF1Meetings = (
   meetings.map(({ meeting, rawEvent }) => {
     const {
       fomRaceId,
-      seasonContext: { timetables },
+      meetingContext: { timetables },
       race: { meetingOfficialName, meetingEndDate, meetingStartDate }
     } = meeting;
 
