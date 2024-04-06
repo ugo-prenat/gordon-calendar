@@ -1,5 +1,5 @@
 import { Context } from 'hono';
-import { findParamsErrors } from './schedule.utils';
+import { findParamsErrors, getSessionsByDays } from './schedule.utils';
 import { Championship } from '@repo/models';
 
 export const getSchedule = (c: Context) => {
@@ -12,5 +12,9 @@ export const getSchedule = (c: Context) => {
   const startDate = new Date(start);
   const endDate = new Date(end);
 
-  return c.json({ championships, startDate, endDate }, 200);
+  // format(new Date(start), 'dd/MM/yyyy');
+
+  const sessions = getSessionsByDays(championships, startDate, endDate);
+
+  return c.json({ championships, startDate, endDate, sessions }, 200);
 };

@@ -1,6 +1,7 @@
 import { CHAMPIONSHIPS } from '@repo/constants';
+import { Championship, IScheduleDay, IScheduleSession } from '@repo/models';
 import { cleanArray, isNotEmpty } from '@repo/utils';
-import { isBefore, isValid } from 'date-fns';
+import { eachDayOfInterval, isBefore, isValid } from 'date-fns';
 import { Context } from 'hono';
 
 export const findParamsErrors = (c: Context): string | undefined => {
@@ -33,3 +34,20 @@ export const findParamsErrors = (c: Context): string | undefined => {
 const isChampsValid = (champs: string): boolean =>
   cleanArray(champs.split(',')).length !== 0 &&
   cleanArray(champs.split(',')).every((champ) => CHAMPIONSHIPS.includes(champ));
+
+export const getSessionsByDays = (
+  champs: Championship[],
+  start: Date,
+  end: Date
+): IScheduleDay[] =>
+  eachDayOfInterval({ start, end }).map((date) => ({
+    date: date.toISOString(),
+    sessions: getSessionsOfTheDay(champs, date)
+  }));
+
+const getSessionsOfTheDay = (
+  champs: Championship[],
+  date: Date
+): IScheduleSession[][] => {
+  return [[]];
+};
