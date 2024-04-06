@@ -1,6 +1,6 @@
 import { Championship } from '@repo/models';
 
-export type CacheKey = Championship | 'schedule';
+export type CacheKey = Championship;
 
 export type CacheItem = {
   key: CacheKey;
