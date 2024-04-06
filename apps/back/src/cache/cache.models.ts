@@ -1,9 +1,9 @@
-import { Championship } from '@repo/models';
+import { Championship, IMotorsportEvent } from '@repo/models';
 
 export type CacheKey = Championship;
 
 export type CacheItem = {
   key: CacheKey;
-  val: unknown;
+  val: IMotorsportEvent[];
   ttl?: number;
 };

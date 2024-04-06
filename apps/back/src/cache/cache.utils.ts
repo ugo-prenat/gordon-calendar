@@ -5,9 +5,12 @@ import faFormattedMock from './mocks/formatted/fa-formatted-mock.json';
 
 import cache from './cache';
 import { CacheItem, CacheKey } from './cache.models';
+import { IMotorsportEvent } from '@repo/models';
 
 export const addToCache = (values: CacheItem[]) => cache.mset(values);
-export const getFromCache = (keys: CacheKey[]) => cache.mget(keys);
+
+export const getFromCache = (keys: CacheKey[]) =>
+  cache.mget<IMotorsportEvent[]>(keys);
 
 const refreshCache = () => {
   // fetch data from API here
@@ -19,10 +22,10 @@ const refreshCache = () => {
 
 const buildCacheWithMocks = () => {
   addToCache([
-    { key: 'f1', val: f1FormattedMock },
-    { key: 'f2', val: f2FormattedMock },
-    { key: 'f3', val: f3FormattedMock },
-    { key: 'fa', val: faFormattedMock }
+    { key: 'f1', val: f1FormattedMock as IMotorsportEvent[] },
+    { key: 'f2', val: f2FormattedMock as IMotorsportEvent[] },
+    { key: 'f3', val: f3FormattedMock as IMotorsportEvent[] },
+    { key: 'fa', val: faFormattedMock as IMotorsportEvent[] }
   ]);
   console.log('Cache built with mocks');
   console.log('---');
