@@ -1,3 +1,9 @@
-import { CACHE_KEYS } from '../constants';
+import { Championship } from '@repo/models';
 
-export type CacheKey = (typeof CACHE_KEYS)[number];
+export type CacheKey = Championship | 'schedule';
+
+export type CacheItem = {
+  key: CacheKey;
+  val: unknown;
+  ttl?: number;
+};

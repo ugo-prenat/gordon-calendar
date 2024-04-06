@@ -1,13 +1,12 @@
-import NodeCache from 'node-cache';
 import cache from './cache';
 
 import f1FormattedMock from './mocks/formatted/f1-formatted-mock.json';
 import f2FormattedMock from './mocks/formatted/f2-formatted-mock.json';
 import f3FormattedMock from './mocks/formatted/f3-formatted-mock.json';
 import faFormattedMock from './mocks/formatted/fa-formatted-mock.json';
+import { CacheItem } from './cache.models';
 
-export const addToCache = (values: NodeCache.ValueSetItem[]) =>
-  cache.mset(values);
+export const addToCache = (values: CacheItem[]) => cache.mset(values);
 
 const refreshCache = () => {
   // fetch data from API here
