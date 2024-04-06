@@ -1,6 +1,7 @@
 import { Context } from 'hono';
 import { findParamsErrors, getSessionsByDays } from './schedule.utils';
 import { Championship } from '@repo/models';
+import { format } from 'date-fns';
 
 export const getSchedule = (c: Context) => {
   const { champs, start, end } = c.req.query();
@@ -12,9 +13,14 @@ export const getSchedule = (c: Context) => {
   const startDate = new Date(start);
   const endDate = new Date(end);
 
-  // format(new Date(start), 'dd/MM/yyyy');
-
   const sessions = getSessionsByDays(championships, startDate, endDate);
 
-  return c.json({ championships, startDate, endDate, sessions }, 200);
+  return c.json(
+    {
+      startDate: format(startDate, 'dd/MM/yyyy'),
+      endDate: format(endDate, 'dd/MM/yyyy'),
+      sessions
+    },
+    200
+  );
 };

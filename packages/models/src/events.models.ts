@@ -26,7 +26,6 @@ export interface IMotorsportEvent extends IEvent {
 }
 
 export interface IScheduleSession {
-  eventId: string;
   sportType: SportType;
   championship: Championship;
   name: string;

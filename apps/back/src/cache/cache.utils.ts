@@ -5,12 +5,11 @@ import faFormattedMock from './mocks/formatted/fa-formatted-mock.json';
 
 import cache from './cache';
 import { CacheItem, CacheKey } from './cache.models';
-import { IMotorsportEvent } from '@repo/models';
+import { IEvent, IMotorsportEvent } from '@repo/models';
 
-export const addToCache = (values: CacheItem[]) => cache.mset(values);
+export const addToCache = (values: CacheItem[]) => cache.mset<IEvent[]>(values);
 
-export const getFromCache = (keys: CacheKey[]) =>
-  cache.mget<IMotorsportEvent[]>(keys);
+export const getFromCache = (keys: CacheKey[]) => cache.mget<IEvent[]>(keys);
 
 const refreshCache = () => {
   // fetch data from API here
