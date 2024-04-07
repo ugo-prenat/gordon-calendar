@@ -9,6 +9,7 @@ import {
 import { cleanArray, isNotEmpty } from '@repo/utils';
 import {
   addDays,
+  areIntervalsOverlapping,
   eachDayOfInterval,
   isBefore,
   isSameDay,
@@ -17,6 +18,7 @@ import {
 } from 'date-fns';
 import { Context } from 'hono';
 import { getFromCache } from '../../cache/cache.utils';
+import { isEqual } from '@repo/utils';
 
 export const findParamsErrors = (c: Context): string | undefined => {
   const { champs, start, end, ...rest } = c.req.query();
@@ -85,7 +87,7 @@ const getSessionsOfTheDay = (
       .map((session) => buildScheduleSession(session, event, date))
   );
 
-  return [sessions];
+  return makeOverlappedSessions(sessions);
 };
 
 const buildScheduleSession = (
@@ -113,3 +115,29 @@ const isSessionEndingTomorrow = (endTime: string, date: Date): boolean =>
 
 const didSessionStartYesterday = (startTime: string, date: Date): boolean =>
   isSameDay(new Date(startTime), addDays(date, 1));
+
+const makeOverlappedSessions = (
+  sessions: IScheduleSession[]
+): IScheduleSession[][] =>
+  sessions.reduce((acc: IScheduleSession[][], session, index) => {
+    const sessionInterval = {
+      start: new Date(session.startTime),
+      end: new Date(session.endTime)
+    };
+
+    const overlappingSessions = sessions.filter((otherSession, otherIndex) =>
+      index !== otherIndex
+        ? areIntervalsOverlapping(sessionInterval, {
+            start: new Date(otherSession.startTime),
+            end: new Date(otherSession.endTime)
+          })
+        : false
+    );
+
+    const isSessionAlreadyOverlapped = acc
+      .flat()
+      .some((s) => isEqual(s, session));
+
+    if (isSessionAlreadyOverlapped) return acc;
+    return [...acc, [session, ...overlappingSessions]];
+  }, []);

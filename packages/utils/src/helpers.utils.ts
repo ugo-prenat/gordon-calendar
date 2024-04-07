@@ -1,3 +1,5 @@
+import lodashIsEqual from 'lodash.isequal';
+
 export const isEmpty = (value: unknown) =>
   value === undefined ||
   value === null ||
@@ -12,3 +14,5 @@ export const wait = (ms: number) =>
 
 export const cleanArray = <T>(array: T[]): T[] =>
   array.filter((item) => item !== null && item !== undefined && item !== '');
+
+export const isEqual = lodashIsEqual;

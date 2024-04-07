@@ -10,12 +10,14 @@
     "build": "tsup src/index.ts"
   },
   "dependencies": {
-    "@repo/constants": "*"
+    "@repo/constants": "*",
+    "lodash.isequal": "4.5.0"
   },
   "devDependencies": {
     "@repo/tsconfig": "*",
     "@types/node": "18.11.9",
     "tsup": "8.0.1",
-    "typescript": "5.2.2"
+    "typescript": "5.2.2",
+    "@types/lodash.isequal": "4.5.8"
   }
 }
