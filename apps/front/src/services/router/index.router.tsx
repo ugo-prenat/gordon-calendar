@@ -1,23 +1,17 @@
 import {
   createRouter,
   createRootRoute,
-  createRoute,
-  Outlet
+  createRoute
 } from '@tanstack/react-router';
 
-import Nav from '@components/nav/Nav';
 import AdminPage from '@pages/admin/Admin.page';
 import CalendarPage from '@pages/calendar/Calendar.page';
 import SettingsPage from '@pages/settings/Settings.page';
 import NotFoundPage from '@pages/notFound/NotFound.page';
+import RootComponent from '@components/Root';
 
 const rootRoute = createRootRoute({
-  component: () => (
-    <>
-      <Nav />
-      <Outlet />
-    </>
-  )
+  component: RootComponent
 });
 
 const calendarRoute = createRoute({
