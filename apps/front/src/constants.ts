@@ -1,0 +1,11 @@
+// CALENDAR
+export const UPCOMING_CALENDAR_VIEW = 'upcoming';
+export const WEEKEND_CALENDAR_VIEW = 'weekend';
+export const WEEK_CALENDAR_VIEW = 'week';
+export const DEFAULT_CALENDAR_VIEW = WEEKEND_CALENDAR_VIEW;
+
+export const CALENDAR_VIEWS = [
+  UPCOMING_CALENDAR_VIEW,
+  WEEKEND_CALENDAR_VIEW,
+  WEEK_CALENDAR_VIEW
+] as const;

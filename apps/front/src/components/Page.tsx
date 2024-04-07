@@ -17,7 +17,7 @@ const Page: FC<IPageProps> = ({ title, children, className, ...props }) => {
       {...props}
     >
       {title && <Title className="mb-6">{title}</Title>}
-      <div>{children}</div>
+      <div className="h-full">{children}</div>
     </div>
   );
 };
