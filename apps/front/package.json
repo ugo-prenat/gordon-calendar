@@ -13,6 +13,7 @@
     "@repo/constants": "*",
     "@repo/models": "*",
     "@repo/utils": "*",
+    "@tanstack/react-router": "^1.26.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
