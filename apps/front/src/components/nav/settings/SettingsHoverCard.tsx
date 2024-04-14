@@ -9,6 +9,7 @@ import {
 import { useTranslation } from '@src/services/i18n/useTranslation';
 import { SlidersHorizontal } from 'lucide-react';
 import { ThemeSelect } from './ThemeSelect';
+import { LangSelect } from './LangSelect';
 
 const SettingsHoverCard = () => {
   const t = useTranslation();
@@ -25,6 +26,7 @@ const SettingsHoverCard = () => {
           <DropdownMenuLabel>{t('settings')}</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <ThemeSelect />
+          <LangSelect />
         </DropdownMenuContent>
       </DropdownMenu>
     </>

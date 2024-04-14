@@ -8,5 +8,9 @@
 
   "language": "Language",
   "language.fr": "Français",
-  "language.en": "English"
+  "language.en": "English",
+
+  "calendar.view.week": "Week",
+  "calendar.view.weekend": "Weekend",
+  "calendar.view.upcoming": "Upcoming"
 }
