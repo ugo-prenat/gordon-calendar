@@ -11,7 +11,7 @@ const DaysView = ({ view }: IDaysViewProps) => {
   return (
     <div className="h-full flex">
       <FiltersMenu />
-      <div className="bg-green-100 flex-1">calendar</div>
+      <div className="flex-1">calendar</div>
     </div>
   );
 };

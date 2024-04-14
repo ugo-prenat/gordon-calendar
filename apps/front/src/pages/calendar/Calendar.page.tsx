@@ -25,7 +25,7 @@ const CalendarPage = () => {
   };
 
   return (
-    <Page className="bg-blue-200">
+    <Page>
       <Tabs defaultValue={DEFAULT_CALENDAR_VIEW}>
         <TabsList>
           {CALENDAR_VIEWS.map((view) => (
