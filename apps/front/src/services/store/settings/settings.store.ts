@@ -8,6 +8,7 @@ import {
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { updateRootElement } from './settings.utils';
+import i18next from 'i18next';
 
 interface ISettingsStore {
   theme: Theme;
@@ -25,7 +26,10 @@ export const useSettings = create<ISettingsStore>()(
         set({ theme });
       },
       lang: DEFAULT_LANG,
-      setLang: (lang) => set({ lang })
+      setLang: (lang) => {
+        i18next.changeLanguage(lang);
+        set({ lang });
+      }
     }),
     { name: SETTINGS_STORAGE_KEY }
   )

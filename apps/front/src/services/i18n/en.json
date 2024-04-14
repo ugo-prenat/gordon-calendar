@@ -1,4 +1,6 @@
 {
+  "settings": "Settings",
+
   "theme": "Theme",
   "theme.dark": "Dark",
   "theme.light": "Light",

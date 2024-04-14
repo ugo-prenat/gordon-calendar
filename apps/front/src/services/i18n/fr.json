@@ -1,4 +1,6 @@
 {
+  "settings": "Paramètres",
+
   "theme": "Thème",
   "theme.dark": "Sombre",
   "theme.light": "Clair",
