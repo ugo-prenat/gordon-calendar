@@ -8,11 +8,8 @@ import AdminPage from '@pages/admin/Admin.page';
 import CalendarPage from '@pages/calendar/Calendar.page';
 import SettingsPage from '@pages/settings/Settings.page';
 import NotFoundPage from '@pages/notFound/NotFound.page';
-import RootComponent from '@components/Root';
 
-const rootRoute = createRootRoute({
-  component: RootComponent
-});
+const rootRoute = createRootRoute();
 
 const calendarRoute = createRoute({
   path: '/',

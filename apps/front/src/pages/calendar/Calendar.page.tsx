@@ -10,6 +10,7 @@ import DaysView from './views/days/DaysView';
 import UpcomingView from './views/upcoming/UpcomingView';
 import { CalendarView } from './calendar.models';
 import { useTranslation } from '@src/services/i18n/useTranslation';
+import { SettingsPopupMenu } from '@src/components/settingsPopupMenu/SettingsPopupMenu';
 
 const CalendarPage = () => {
   const t = useTranslation();
@@ -30,13 +31,17 @@ const CalendarPage = () => {
   return (
     <Page>
       <Tabs defaultValue={DEFAULT_CALENDAR_VIEW}>
-        <TabsList>
-          {CALENDAR_VIEWS.map((view) => (
-            <TabsTrigger key={view} value={view}>
-              {t(`calendar.view.${view}`)}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+        <div className="flex justify-between">
+          <TabsList>
+            {CALENDAR_VIEWS.map((view) => (
+              <TabsTrigger key={view} value={view}>
+                {t(`calendar.view.${view}`)}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+
+          <SettingsPopupMenu />
+        </div>
 
         {CALENDAR_VIEWS.map((view) => (
           <TabsContent key={view} value={view}>

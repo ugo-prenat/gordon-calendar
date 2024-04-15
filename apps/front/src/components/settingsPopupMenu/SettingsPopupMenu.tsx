@@ -7,11 +7,11 @@ import {
   DropdownMenuTrigger
 } from '@src/components/ui/shadcn/dropdown-menu';
 import { useTranslation } from '@src/services/i18n/useTranslation';
-import { SlidersHorizontal } from 'lucide-react';
+import { Settings2 } from 'lucide-react';
 import { ThemeSelect } from './ThemeSelect';
 import { LangSelect } from './LangSelect';
 
-const SettingsHoverCard = () => {
+export const SettingsPopupMenu = () => {
   const t = useTranslation();
 
   return (
@@ -19,7 +19,7 @@ const SettingsHoverCard = () => {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon">
-            <SlidersHorizontal className="w-4 h-4" />
+            <Settings2 className="w-4 h-4" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
@@ -32,5 +32,3 @@ const SettingsHoverCard = () => {
     </>
   );
 };
-
-export default SettingsHoverCard;

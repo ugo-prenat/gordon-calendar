@@ -1,7 +1,7 @@
 import Page from '@components/Page';
 
 const SettingsPage = () => {
-  return <Page title="Settings">Settings page</Page>;
+  return <Page title="Settings"></Page>;
 };
 
 export default SettingsPage;
