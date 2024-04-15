@@ -9,3 +9,8 @@ export const CALENDAR_VIEWS = [
   WEEKEND_CALENDAR_VIEW,
   WEEK_CALENDAR_VIEW
 ] as const;
+
+export const NB_OF_DAYS_BY_VIEWS = {
+  [WEEKEND_CALENDAR_VIEW]: 3,
+  [WEEK_CALENDAR_VIEW]: 7
+} as const;

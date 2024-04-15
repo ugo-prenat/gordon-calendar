@@ -18,9 +18,9 @@ const CalendarPage = () => {
   const TabContent = ({ view }: { view: CalendarView }) => {
     switch (view) {
       case 'weekend':
-        return <DaysView view="weekend" />;
+        return <DaysView dayView="weekend" />;
       case 'week':
-        return <DaysView view="week" />;
+        return <DaysView dayView="week" />;
       case 'upcoming':
         return <UpcomingView />;
       default:
@@ -29,9 +29,13 @@ const CalendarPage = () => {
   };
 
   return (
-    <Page>
-      <Tabs defaultValue={DEFAULT_CALENDAR_VIEW}>
-        <div className="flex justify-between">
+    <Page id="calendarPage">
+      <Tabs
+        id="tabs"
+        className="flex h-full flex-col"
+        defaultValue={DEFAULT_CALENDAR_VIEW}
+      >
+        <div id="tabsList" className="flex justify-between mb-4">
           <TabsList>
             {CALENDAR_VIEWS.map((view) => (
               <TabsTrigger key={view} value={view}>
@@ -44,7 +48,7 @@ const CalendarPage = () => {
         </div>
 
         {CALENDAR_VIEWS.map((view) => (
-          <TabsContent key={view} value={view}>
+          <TabsContent key={view} value={view} className="flex-1">
             <TabContent view={view} />
           </TabsContent>
         ))}

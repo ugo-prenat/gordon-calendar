@@ -1,16 +1,16 @@
-import { WEEK_CALENDAR_VIEW, WEEKEND_CALENDAR_VIEW } from '@src/constants';
 import FiltersMenu from '../../filtersMenu/FiltersMenu';
+import { IDayView } from '../../calendar.models';
 
 interface IDaysViewProps {
-  view: typeof WEEK_CALENDAR_VIEW | typeof WEEKEND_CALENDAR_VIEW;
+  dayView: IDayView;
 }
 
-const DaysView = ({ view }: IDaysViewProps) => {
-  console.log('DaysView', view);
+const DaysView = ({ dayView }: IDaysViewProps) => {
+  console.log('DaysView', dayView);
 
   return (
-    <div className="h-full flex">
-      <FiltersMenu />
+    <div id="daysView" className="h-full flex">
+      <FiltersMenu dayView={dayView} />
       <div className="flex-1">calendar</div>
     </div>
   );
