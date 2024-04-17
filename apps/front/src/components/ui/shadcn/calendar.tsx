@@ -4,6 +4,7 @@ import { DayPicker } from 'react-day-picker';
 
 import { cn } from '@utils/tailwind.utils';
 import { buttonVariants } from '@components/ui/shadcn/button';
+import { useFnsLocale } from '@src/services/i18n/useTranslation';
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
@@ -13,6 +14,8 @@ function Calendar({
   showOutsideDays = true,
   ...props
 }: CalendarProps) {
+  const locale = useFnsLocale();
+
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
@@ -51,6 +54,8 @@ function Calendar({
         day_hidden: 'invisible',
         ...classNames
       }}
+      locale={locale}
+      weekStartsOn={1}
       components={{
         IconLeft: ({ ...props }) => <ChevronLeft className="h-4 w-4" />,
         IconRight: ({ ...props }) => <ChevronRight className="h-4 w-4" />

@@ -12,5 +12,15 @@
 
   "calendar.view.week": "Week",
   "calendar.view.weekend": "Weekend",
-  "calendar.view.upcoming": "Upcoming"
+  "calendar.view.upcoming": "Upcoming",
+  "calendar.dateRange.weekend.-1": "Last weekend",
+  "calendar.dateRange.weekend.0": "This weekend",
+  "calendar.dateRange.weekend.1": "Next weekend",
+  "calendar.dateRange.weekend.2": "In 2 weekends",
+  "calendar.dateRange.weekend.3": "In 3 weekends",
+  "calendar.dateRange.week.-1": "Last week",
+  "calendar.dateRange.week.0": "This week",
+  "calendar.dateRange.week.1": "Next week",
+  "calendar.dateRange.week.2": "In 2 weeks",
+  "calendar.dateRange.week.3": "In 3 weeks"
 }
