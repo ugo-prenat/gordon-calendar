@@ -10,10 +10,10 @@ import {
   startOfWeek,
   subDays
 } from 'date-fns';
-import { IDateRange, IDayView } from './calendar.models';
+import { IDateRange, DayView } from './calendar.models';
 
 export const getCalendarRange = (
-  dayView: IDayView,
+  dayView: DayView,
   index: number
 ): IDateRange => {
   const todayRange = getDateRange(dayView);
@@ -23,7 +23,7 @@ export const getCalendarRange = (
   };
 };
 
-export const getDateRange = (dayView: IDayView): IDateRange => {
+const getDateRange = (dayView: DayView): IDateRange => {
   const today = startOfToday();
 
   switch (dayView) {

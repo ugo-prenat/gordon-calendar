@@ -1,12 +1,17 @@
 import FiltersMenu from '../../filtersMenu/FiltersMenu';
-import { IDayView } from '../../calendar.models';
+import { DayView } from '../../calendar.models';
+import { useCalendar } from '@src/services/store/calendar/calendar.store';
+import { useFnsFormat } from '@src/hooks/useFnsFormat';
 
 interface IDaysViewProps {
-  dayView: IDayView;
+  dayView: DayView;
 }
 
 const DaysView = ({ dayView }: IDaysViewProps) => {
-  console.log('DaysView', dayView);
+  const { range } = useCalendar();
+  const format = useFnsFormat();
+
+  console.log({ from: format(range.from, 'PPP'), to: format(range.to, 'PPP') });
 
   return (
     <div id="daysView" className="h-full flex">

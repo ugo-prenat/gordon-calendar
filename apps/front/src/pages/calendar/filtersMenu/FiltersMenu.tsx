@@ -1,8 +1,8 @@
-import { IDayView } from '../calendar.models';
+import { DayView } from '../calendar.models';
 import { DateRangePicker } from './DateRangePicker';
 
 interface IFiltersMenuProps {
-  dayView: IDayView;
+  dayView: DayView;
 }
 
 const FiltersMenu = ({ dayView }: IFiltersMenuProps) => {

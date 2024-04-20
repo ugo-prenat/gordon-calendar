@@ -4,20 +4,20 @@ import {
   SelectItem,
   SelectTrigger
 } from '@src/components/ui/shadcn/select';
-import { useState } from 'react';
 import { Calendar } from '@src/components/ui/shadcn/calendar';
 import { CalendarIcon } from 'lucide-react';
 import { useTranslation } from '@src/services/i18n/useTranslation';
-import { IDateRange, IDayView } from '../calendar.models';
-import { getCalendarRange } from '../calendar.utils';
+import { DayView } from '../calendar.models';
 import { DateRange } from 'react-day-picker';
+import { useCalendar } from '@src/services/store/calendar/calendar.store';
+import { getCalendarRange } from '../calendar.utils';
 
 interface IDateRangePickerProps {
-  dayView: IDayView;
+  dayView: DayView;
 }
 
 export const DateRangePicker = ({ dayView }: IDateRangePickerProps) => {
-  const [range, setRange] = useState<IDateRange>(getCalendarRange(dayView, 0));
+  const { range, setRange } = useCalendar();
 
   const handleSelect = (maybeRange: DateRange | undefined) =>
     setRange({
@@ -27,7 +27,7 @@ export const DateRangePicker = ({ dayView }: IDateRangePickerProps) => {
 
   return (
     <>
-      <Presets setRange={setRange} dayView={dayView} />
+      <Presets dayView={dayView} />
       <div className="rounded-md border mt-2">
         <Calendar
           disabled
@@ -42,25 +42,22 @@ export const DateRangePicker = ({ dayView }: IDateRangePickerProps) => {
 };
 
 interface IPresetsProp {
-  dayView: IDayView;
-  setRange: (date: IDateRange) => void;
+  dayView: DayView;
 }
 
-const Presets = ({ setRange, dayView }: IPresetsProp) => {
+const Presets = ({ dayView }: IPresetsProp) => {
   const t = useTranslation();
-  const [selectedRangeIndex, setSelectedRangeIndex] = useState('0');
+  const { rangeIndex, setRangeAndIndex } = useCalendar();
 
-  const handleChange = (index: string) => {
-    setSelectedRangeIndex(index);
-    setRange(getCalendarRange(dayView, +index));
-  };
+  const handleChange = (index: string) =>
+    setRangeAndIndex(getCalendarRange(dayView, +index), index);
 
   return (
-    <Select onValueChange={handleChange} value={selectedRangeIndex}>
+    <Select onValueChange={handleChange} value={rangeIndex}>
       <SelectTrigger>
         <div className="flex justify-start items-center text-left font-normal">
           <CalendarIcon className="mr-2 h-4 w-4" />
-          {t(`calendar.dateRange.${dayView}.${selectedRangeIndex}`)}
+          {t(`calendar.dateRange.${dayView}.${rangeIndex}`)}
         </div>
       </SelectTrigger>
       <SelectContent position="popper">
