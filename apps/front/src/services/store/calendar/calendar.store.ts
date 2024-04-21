@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist, devtools } from 'zustand/middleware';
 import {
   CALENDAR_STORAGE_KEY,
   CalendarView,
@@ -12,6 +12,8 @@ import {
   WEEKEND_CALENDAR_VIEW
 } from '@src/constants';
 import { getCalendarRange } from '@src/pages/calendar/calendar.utils';
+import { Championship } from '@repo/models';
+import { DEFAULT_CHAMPIONSHIPS } from '@repo/constants';
 
 interface ICalendarStore {
   rangeIndex: string;
@@ -21,6 +23,8 @@ interface ICalendarStore {
   range: IDateRange;
   setRange: (range: IDateRange) => void;
   setRangeAndIndex: (range: IDateRange, rangeIndex: string) => void;
+  championships: Championship[];
+  setChampionships: (championships: Championship[]) => void;
 }
 
 const getDefaultRange = (calendarView: CalendarView) => {
@@ -34,19 +38,23 @@ const getDefaultRange = (calendarView: CalendarView) => {
 };
 
 export const useCalendar = create<ICalendarStore>()(
-  persist(
-    (set) => ({
-      rangeIndex: '0',
-      setRangeIndex: (index) => set({ rangeIndex: index }),
-      view: DEFAULT_CALENDAR_VIEW,
-      setView: (view) => set({ view }),
-      range: getDefaultRange(DEFAULT_CALENDAR_VIEW),
-      setRange: (range) => set({ range }),
-      setRangeAndIndex: (range, rangeIndex) => set({ range, rangeIndex })
-    }),
-    {
-      name: CALENDAR_STORAGE_KEY,
-      partialize: ({ view }) => ({ view })
-    }
+  devtools(
+    persist(
+      (set) => ({
+        rangeIndex: '0',
+        setRangeIndex: (index) => set({ rangeIndex: index }),
+        view: DEFAULT_CALENDAR_VIEW,
+        setView: (view) => set({ view }),
+        range: getDefaultRange(DEFAULT_CALENDAR_VIEW),
+        setRange: (range) => set({ range }),
+        setRangeAndIndex: (range, rangeIndex) => set({ range, rangeIndex }),
+        championships: DEFAULT_CHAMPIONSHIPS as Championship[],
+        setChampionships: (championships) => set({ championships })
+      }),
+      {
+        name: CALENDAR_STORAGE_KEY,
+        partialize: ({ view, championships }) => ({ view, championships })
+      }
+    )
   )
 );

@@ -15,3 +15,5 @@ export const FA = 'fa';
 
 export const MOTORSPORT_CHAMPIONSHIPS = [F1, F2, F3, FA] as const;
 export const CHAMPIONSHIPS = [...MOTORSPORT_CHAMPIONSHIPS] as const;
+
+export const DEFAULT_CHAMPIONSHIPS = [F1, F2];

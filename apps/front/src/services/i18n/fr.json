@@ -22,5 +22,10 @@
   "calendar.dateRange.week.0": "Cette semaine",
   "calendar.dateRange.week.1": "Semaine prochaine",
   "calendar.dateRange.week.2": "Dans 2 semaines",
-  "calendar.dateRange.week.3": "Dans 3 semaines"
+  "calendar.dateRange.week.3": "Dans 3 semaines",
+
+  "championships.f1": "Formule 1",
+  "championships.f2": "Formule 2",
+  "championships.f3": "Formule 3",
+  "championships.fa": "F1 Academy"
 }

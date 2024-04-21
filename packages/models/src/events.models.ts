@@ -1,12 +1,7 @@
-import {
-  CHAMPIONSHIPS,
-  MOTORSPORT_CHAMPIONSHIPS,
-  SPORTS_TYPES
-} from '@repo/constants';
+import { SPORTS_TYPES } from '@repo/constants';
+import { Championship, MotorsportChampionship } from './championships.models';
 
 export type SportType = (typeof SPORTS_TYPES)[number];
-export type MotorsportChampionship = (typeof MOTORSPORT_CHAMPIONSHIPS)[number];
-export type Championship = (typeof CHAMPIONSHIPS)[number];
 
 export interface IEvent {
   id: string;

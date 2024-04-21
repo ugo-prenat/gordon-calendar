@@ -1,4 +1,5 @@
 import { DayView } from '../calendar.models';
+import { ChampionshipsFilter } from './ChampionshipsFilter';
 import { DateRangePicker } from './DateRangePicker';
 
 interface IFiltersMenuProps {
@@ -9,6 +10,7 @@ const FiltersMenu = ({ dayView }: IFiltersMenuProps) => {
   return (
     <div className="border-r pr-4 mr-4">
       <DateRangePicker dayView={dayView} />
+      <ChampionshipsFilter />
     </div>
   );
 };
